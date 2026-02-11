@@ -10,7 +10,7 @@ const ORE_PER_HA: Record<string, number> = {
 };
 
 // Fattori correttivi terreno
-const FATTORE_TERRENO: Record<string, number> = {
+const FATTORE_TERRERE: Record<string, number> = {
   [Terreno.PIANURA]: 1.0,
   [Terreno.COLLINA]: 1.2,
   [Terreno.TERRAZZAMENTI]: 1.3
@@ -20,7 +20,7 @@ interface CalculatorProps {
   onResultGenerated: () => void;
 }
 
-const Calculator: React.FC<CalculatorProps> = ({ onResultGenerated }) => {
+const Calculator: React.FC<CalculatorProps> = ({ onResultGenerated }: CalculatorProps) => {
   const [showModal, setShowModal] = useState(false);
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -59,7 +59,7 @@ const Calculator: React.FC<CalculatorProps> = ({ onResultGenerated }) => {
 
     if (inputs.tipoAzienda === TipoAzienda.AGRICOLA) {
       const orePerHa = ORE_PER_HA[inputs.coltura] || 200;
-      const fattoreTerreno = FATTORE_TERRENO[inputs.terreno] || 1.0;
+      const fattoreTerreno = FATTORE_TERRERE[inputs.terreno] || 1.0;
       oreTotali = inputs.ettari * orePerHa * fattoreTerreno;
       const orePersonaNelPeriodo = inputs.durataSettimane * inputs.giorniSettimana * inputs.oreGiorno;
       numeroStagionali = Math.max(1, Math.ceil(oreTotali / (orePersonaNelPeriodo || 1)));

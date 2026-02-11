@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 interface HeroProps {
@@ -5,7 +6,7 @@ interface HeroProps {
   onSecondaryClick: () => void;
 }
 
-const Hero: React.FC<HeroProps> = ({ onPrimaryClick, onSecondaryClick }) => {
+const Hero: React.FC<HeroProps> = ({ onPrimaryClick, onSecondaryClick }: HeroProps) => {
   return (
     <div className="relative pt-16 pb-12 md:pt-24 md:pb-16 px-4 text-center">
       <div className="max-w-4xl mx-auto">

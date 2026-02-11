@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+
+import React, { useRef } from 'react';
 import Hero from './components/Hero';
 import Calculator from './components/Calculator';
 import Trust from './components/Trust';
@@ -7,7 +8,6 @@ import FAQ from './components/FAQ';
 import Logo from './components/Logo';
 
 const App: React.FC = () => {
-  const [showEmailGate, setShowEmailGate] = useState(false);
   const calculatorRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
 
@@ -57,7 +57,7 @@ const App: React.FC = () => {
                   Definisci i parametri della Campagna 2026 per confrontare l'efficienza gestionale di AvvIA con i benchmark di settore.
                 </p>
               </div>
-              <Calculator onResultGenerated={() => setShowEmailGate(true)} />
+              <Calculator onResultGenerated={() => {}} />
             </div>
           </section>
 
