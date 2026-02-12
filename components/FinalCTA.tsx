@@ -11,7 +11,12 @@ const FinalCTA: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const sent = await submitEmail(email);
+    const sent = await submitEmail({
+      email: email,
+      companyName: company,
+      phone: phone,
+      source: "hero_form"
+    });
     if (sent) {
       setEmail('');
       setCompany('');
@@ -37,7 +42,7 @@ const FinalCTA: React.FC = () => {
           </div>
           <h3 className="text-2xl font-black mb-2">Richiesta ricevuta</h3>
           <p className="text-teal-100 text-base font-medium opacity-80 mb-4">Controlla la tua email, stiamo elaborando i dati della Campagna 2026.</p>
-          <p className="text-teal-400 font-bold">Email salvata con successo! ✅</p>
+          <p className="text-teal-400 font-bold text-lg">Email salvata con successo! ✅</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="bg-white/10 backdrop-blur-xl p-8 md:p-12 rounded-[2.5rem] border border-white/20 text-left shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)]">

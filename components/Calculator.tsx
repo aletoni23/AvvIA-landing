@@ -123,7 +123,11 @@ const Calculator: React.FC<CalculatorProps> = ({ onResultGenerated }: Calculator
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const sent = await submitEmail(email);
+    const sent = await submitEmail({
+      email: email,
+      companyName: company,
+      source: "modal_form"
+    });
     if (sent) {
       setEmail('');
       setCompany('');
@@ -402,7 +406,7 @@ const Calculator: React.FC<CalculatorProps> = ({ onResultGenerated }: Calculator
                 </div>
                 <h3 className="text-2xl font-black text-gray-900 mb-2 tracking-tight">Pronti per la Campagna 2026</h3>
                 <p className="text-gray-500 mb-8 text-base leading-relaxed font-medium">Il nostro team ti contatterà entro 24h per mostrarti il report analitico completo e il workflow specifico per la tua azienda.</p>
-                <p className="text-teal-600 font-bold mb-8">Email salvata con successo! ✅</p>
+                <p className="text-teal-600 font-bold mb-8 text-lg">Email salvata con successo! ✅</p>
                 <button onClick={() => setShowModal(false)} className="w-full py-4 bg-teal-800 text-white rounded-2xl font-black text-lg hover:bg-teal-900 transition-all shadow-lg active:scale-95">Torna alla simulazione</button>
               </div>
             ) : (
