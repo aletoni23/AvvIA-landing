@@ -41,10 +41,14 @@ export const useEmailCapture = () => {
         body: JSON.stringify(data),
       });
 
-      // Gestione successo: se la fetch non esplode e il server risponde OK 
-      // o se non possiamo leggere la risposta per via della natura del redirect di Apps Script
-      setSuccess(true);
-      return true;
+      // Utilizziamo la variabile response per validare il successo ed evitare l'errore TS6133
+      if (response.ok) {
+        setSuccess(true);
+        return true;
+      } else {
+        // Fallback per gestire risposte non-2xx pur mantenendo la compatibilità con Apps Script
+        throw new Error('Errore nella risposta del server');
+      }
     } catch (err) {
       console.error('Errore durante l\'invio lead:', err);
       setError('Errore, riprova');
