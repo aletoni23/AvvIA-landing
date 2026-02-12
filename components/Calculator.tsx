@@ -1,6 +1,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { Coltura, Terreno, TipoAzienda, FilieraTrasformatore, CalculatorInputs, CalculatorResults } from '../types';
+import { useEmailCapture } from '../hooks/useEmailCapture';
 
 // Coefficienti ore/uomo per ettaro (Tabelle regionali IT)
 const ORE_PER_HA: Record<string, number> = {
@@ -23,10 +24,10 @@ interface CalculatorProps {
 const Calculator: React.FC<CalculatorProps> = ({ onResultGenerated }: CalculatorProps) => {
   const [showModal, setShowModal] = useState(false);
   const [showAdvanced, setShowAdvanced] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
   const [email, setEmail] = useState('');
   const [company, setCompany] = useState('');
+  
+  const { submitEmail, loading, success, error } = useEmailCapture();
 
   const [inputs, setInputs] = useState<CalculatorInputs>({
     tipoAzienda: TipoAzienda.AGRICOLA,
@@ -120,14 +121,14 @@ const Calculator: React.FC<CalculatorProps> = ({ onResultGenerated }: Calculator
   const costoHRAvvIA = results.oreHRAvvIA * inputs.costoHR;
   const risparmioEuro = results.risparmioOre * inputs.costoHR;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
+    const sent = await submitEmail(email);
+    if (sent) {
+      setEmail('');
+      setCompany('');
       onResultGenerated();
-    }, 1200);
+    }
   };
 
   const getMicrocopy = () => {
@@ -392,7 +393,7 @@ const Calculator: React.FC<CalculatorProps> = ({ onResultGenerated }: Calculator
       {showModal && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-teal-950/60 backdrop-blur-md animate-fade-in">
           <div className="bg-white rounded-[2.5rem] shadow-2xl w-full max-w-xl overflow-hidden border border-gray-100 card-shadow">
-            {isSuccess ? (
+            {success ? (
               <div className="p-12 text-center animate-fade-in">
                 <div className="w-20 h-20 bg-teal-50 text-teal-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner shadow-teal-900/5">
                   <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -401,6 +402,7 @@ const Calculator: React.FC<CalculatorProps> = ({ onResultGenerated }: Calculator
                 </div>
                 <h3 className="text-2xl font-black text-gray-900 mb-2 tracking-tight">Pronti per la Campagna 2026</h3>
                 <p className="text-gray-500 mb-8 text-base leading-relaxed font-medium">Il nostro team ti contatterà entro 24h per mostrarti il report analitico completo e il workflow specifico per la tua azienda.</p>
+                <p className="text-teal-600 font-bold mb-8">Email salvata con successo! ✅</p>
                 <button onClick={() => setShowModal(false)} className="w-full py-4 bg-teal-800 text-white rounded-2xl font-black text-lg hover:bg-teal-900 transition-all shadow-lg active:scale-95">Torna alla simulazione</button>
               </div>
             ) : (
@@ -447,11 +449,13 @@ const Calculator: React.FC<CalculatorProps> = ({ onResultGenerated }: Calculator
                     />
                   </div>
                   
+                  {error && <p className="text-red-600 text-xs font-bold text-center mt-2">{error}</p>}
+                  
                   <button 
-                    disabled={isSubmitting}
+                    disabled={loading}
                     className="w-full py-4.5 bg-teal-800 text-white rounded-xl font-black text-lg hover:bg-teal-900 transition-all shadow-2xl shadow-teal-900/20 active:scale-95 disabled:opacity-50 mt-4 flex items-center justify-center"
                   >
-                    {isSubmitting ? (
+                    {loading ? (
                       <>
                         <svg className="animate-spin h-6 w-6 mr-3 text-white" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
                         Generando report...
