@@ -51,10 +51,10 @@ const App: React.FC = () => {
           <section id="calculator" ref={calculatorRef} className="py-12 md:py-16 px-4">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-10">
-                <span className="text-teal-800 font-bold tracking-widest uppercase text-[10px] bg-teal-50 px-3 py-1 rounded-full border border-teal-100/50">Simulatore Operativo Certificato</span>
-                <h2 className="text-3xl md:text-5xl font-bold mt-4 text-gray-900 tracking-tight">Analisi ROI – Campagna 2026</h2>
+                <span className="text-teal-800 font-bold tracking-widest uppercase text-[10px] bg-teal-50 px-3 py-1 rounded-full border border-teal-100/50">Simulatore di Risparmio Operativo</span>
+                <h2 className="text-3xl md:text-5xl font-bold mt-4 text-gray-900 tracking-tight">Analisi del Risparmio – Campagna 2026</h2>
                 <p className="text-gray-500 mt-4 max-w-2xl mx-auto text-lg leading-relaxed opacity-80">
-                  Definisci i parametri della Campagna 2026 per confrontare l'efficienza gestionale di AvvIA con i benchmark di settore.
+                  Calcola quante ore di lavoro HR puoi recuperare automatizzando la raccolta documenti e la verifica dei permessi di soggiorno.
                 </p>
               </div>
               <Calculator onResultGenerated={() => {}} />
@@ -73,7 +73,7 @@ const App: React.FC = () => {
 
         <footer className="py-10 px-4 border-t border-gray-200 text-center bg-white">
           <Logo className="h-8 grayscale opacity-50 mb-4 mx-auto" showText={false} />
-          <p className="text-gray-400 text-xs font-medium tracking-wide">© 2025 AvvIA SaaS. Ottimizzato per la Campagna 2026. Made in Italy with precision.</p>
+          <p className="text-gray-400 text-xs font-medium tracking-wide">© 2025 AvvIA SaaS. Gestione compliance per l'industria agroalimentare. Made in Italy with precision.</p>
         </footer>
       </div>
     </div>

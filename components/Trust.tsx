@@ -3,8 +3,8 @@ import React from 'react';
 const Trust: React.FC = () => {
   const features = [
     {
-      title: "WhatsApp Nativo 2026",
-      desc: "Zero app da scaricare per gli operai. Raccolta documenti fluida tramite chat automatizzata e sicura.",
+      title: "Raccolta via WhatsApp",
+      desc: "Gli operai inviano i documenti via chat prima di arrivare. Niente scartoffie o file all'ingresso.",
       icon: (
         <svg className="w-6 h-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
@@ -12,8 +12,8 @@ const Trust: React.FC = () => {
       )
     },
     {
-      title: "Audit Trail Certificato",
-      desc: "Tracciabilità totale di ogni documento e firma. Compliance garantita per ispezioni e certificazioni Campagna 2026.",
+      title: "Compliance Garantita",
+      desc: "Ogni documento è verificato e archiviato. Sei pronto per ogni ispezione o audit di filiera.",
       icon: (
         <svg className="w-6 h-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -21,8 +21,8 @@ const Trust: React.FC = () => {
       )
     },
     {
-      title: "Validazione AI Avanzata",
-      desc: "Validazione istantanea dei permessi di soggiorno e documenti d'identità per eliminare ogni errore amministrativo.",
+      title: "Controllo Permessi Istantaneo",
+      desc: "L'AI verifica subito permessi di soggiorno e scadenze. Evita errori che bloccano l'assunzione.",
       icon: (
         <svg className="w-6 h-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />

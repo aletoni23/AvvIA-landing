@@ -5,20 +5,20 @@ const FAQ: React.FC = () => {
 
   const faqs = [
     {
-      q: "Come viene calcolato il ROI per la Campagna 2026?",
-      a: "Il calcolo si basa sui benchmark di settore italiani relativi alla Campagna 2026, incrociando ore/uomo per ettaro, complessità burocratica dei permessi di soggiorno e costi medi HR per la gestione manuale del follow-up."
+      q: "Come calcolate il risparmio di tempo?",
+      a: "Incrociamo i dati medi di settore con il tempo speso oggi dai tuoi uffici per solleciti, fotocopie e data-entry manuale dei documenti stagionali."
     },
     {
-      q: "Da dove arriva effettivamente il risparmio?",
-      a: "Dall'automazione totale della raccolta documenti tramite WhatsApp e dalla validazione AI. Questo elimina le ore perse in solleciti telefonici e riduce del 60% gli errori che solitamente bloccano l'onboarding all'avvio della Campagna 2026."
+      q: "Perché WhatsApp è più efficace?",
+      a: "Perché è lo strumento che gli operai usano già. Ricevono istruzioni chiare e inviano foto dei documenti in pochi secondi, senza che tu debba chiamarli uno ad uno."
     },
     {
-      q: "AvvIA è già pronto per le normative 2026?",
-      a: "Sì. Il nostro sistema di compliance documentale viene costantemente aggiornato per recepire le variazioni normative in materia di lavoro stagionale, garantendo un audit trail perfetto in vista delle ispezioni della Campagna 2026."
+      q: "Cosa succede in caso di ispezione?",
+      a: "Avrai un archivio digitale ordinato e completo. Ogni passaggio è tracciato, rendendo la gestione della compliance a prova di controllo ispettivo."
     },
     {
       q: "AvvIA è adatto anche fuori dall'agrifood?",
-      a: "Certamente. Sebbene il nostro modello principale sia tarato sulla Campagna 2026 del settore agricolo, la tecnologia è ideale per qualsiasi industria con picchi di assunzioni stagionali come Turismo, Logistica ed Eventi."
+      a: "Certamente. Sebbene il nostro modello principale sia tarato sull'agroalimentare, la tecnologia è ideale per qualsiasi industria con picchi di assunzioni stagionali come Turismo e Logistica."
     }
   ];
 

@@ -137,7 +137,7 @@ const Calculator: React.FC<CalculatorProps> = ({ onResultGenerated }: Calculator
 
   const getMicrocopy = () => {
     if (inputs.tipoAzienda === TipoAzienda.AGRICOLA) {
-      return "Modello costruito su dati industriali e benchmark agrifood pluridecennali.";
+      return "Parametri basati sui flussi reali di aziende agricole e cooperative italiane.";
     }
     if (inputs.filieraTrasformatore === FilieraTrasformatore.POMODORO) {
       return "Stima basata su produttività media per linea nel settore conserviero.";
@@ -151,8 +151,8 @@ const Calculator: React.FC<CalculatorProps> = ({ onResultGenerated }: Calculator
         {/* INPUT PANEL */}
         <div className="lg:w-[42%] p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-gray-100 bg-[#FAF9F6]/60">
           <div className="mb-6 md:mb-8">
-            <h3 className="text-xl font-bold text-gray-900 tracking-tight">Parametri Operativi</h3>
-            <p className="text-xs text-teal-800 font-bold mt-1 uppercase tracking-widest opacity-70">Campagna 2026</p>
+            <h3 className="text-xl font-bold text-gray-900 tracking-tight">Dati della Campagna</h3>
+            <p className="text-xs text-teal-800 font-bold mt-1 uppercase tracking-widest opacity-70">Stagione 2026</p>
             <div className="h-1 w-10 bg-teal-800 mt-3 rounded-full"></div>
           </div>
           
@@ -310,11 +310,11 @@ const Calculator: React.FC<CalculatorProps> = ({ onResultGenerated }: Calculator
           <div>
             <div className="mb-6 md:mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
                <div>
-                  <h3 className="text-xl font-bold text-gray-900">Stima operativa Campagna 2026</h3>
+                  <h3 className="text-xl font-bold text-gray-900">Potenziale di Risparmio 2026</h3>
                   <p className="text-xs text-gray-500 mt-1 opacity-70">{getMicrocopy()}</p>
                </div>
                <div className="inline-flex items-center px-3 py-1 rounded-full border border-teal-200 bg-teal-50 text-teal-800 text-[10px] font-black uppercase tracking-widest whitespace-nowrap">
-                  Benchmark Settore Italia
+                  Benchmark Agrifood Italia
                </div>
             </div>
 
@@ -364,7 +364,7 @@ const Calculator: React.FC<CalculatorProps> = ({ onResultGenerated }: Calculator
               {/* Savings Highlight */}
               <div className="mt-6 text-center p-6 bg-teal-800 rounded-[2rem] shadow-xl shadow-teal-900/10 relative overflow-hidden group">
                 <div className="absolute inset-0 bg-noise opacity-10"></div>
-                <p className="text-teal-200 text-[10px] font-black uppercase tracking-[0.3em] mb-1.5">Risparmio Operativo Stimato</p>
+                <p className="text-teal-200 text-[10px] font-black uppercase tracking-[0.3em] mb-1.5">Tempo HR recuperato per la stagione</p>
                 <div className="flex items-center justify-center space-x-6">
                    <p className="text-white text-3xl font-black tracking-tight">{results.risparmioOre} ore</p>
                    <div className="h-8 w-px bg-white/20"></div>
@@ -373,7 +373,7 @@ const Calculator: React.FC<CalculatorProps> = ({ onResultGenerated }: Calculator
               </div>
 
               <p className="text-center text-[10px] text-gray-400 mt-4 leading-relaxed italic opacity-70 max-w-xs mx-auto font-medium">
-                “La maggior parte delle aziende agricole e dei trasformatori impiega il 25–40% del tempo HR in follow-up documentale.”
+                “Negli stabilimenti agrifood, il 30% del tempo HR viene perso a rincorrere documenti mancanti o errati.”
               </p>
             </div>
           </div>
@@ -383,12 +383,12 @@ const Calculator: React.FC<CalculatorProps> = ({ onResultGenerated }: Calculator
               onClick={() => setShowModal(true)}
               className="w-full py-5 bg-teal-800 text-white rounded-2xl font-black text-lg hover:bg-teal-900 transition-all shadow-2xl shadow-teal-900/20 flex items-center justify-center group transform hover:-translate-y-1"
             >
-              Scopri come AvvIA genera questo risparmio
+              Guarda come eliminare il caos documentale
               <svg className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </button>
-            <p className="text-[9px] text-gray-400 mt-3 uppercase tracking-[0.2em] font-black opacity-60">Modello operatività Campagna 2026 – Gratuito</p>
+            <p className="text-[9px] text-gray-400 mt-3 uppercase tracking-[0.2em] font-black opacity-60">Report operatività Campagna 2026 – Gratuito</p>
           </div>
         </div>
       </div>
